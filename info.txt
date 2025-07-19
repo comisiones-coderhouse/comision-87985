@@ -1,0 +1,42 @@
+pwd : Para ver el directorio actual
+ls : Para ver los archivos y carpetas del directorio actual
+cd : Para cambiar de directorio
+
+node -v : Para ver la version de node
+npm -v : Para ver la version de npm
+
+npm create vite@latest : Para crear un nuevo proyecto con vite
+
+npm install : Para instalar las dependencias del proyecto basado en el package.json
+
+npm run dev : Para iniciar el proyecto en modo desarrollo, seria el nuevo Live Server de VSC
+
+Cosas basicas de JS para entender React
+
+- const vs let
+- funciones, arrow functions
+- parametros de funciones
+- bucles (.forEach, .map)
+- condicionales (if/else, operador ternario)
+- destructuring 
+- spread/rest operator (...)
+- Modules (import/export)
+
+NodeJS 🔥
+    Es un entorno de ejecucion de JS fuera del navegador.
+
+
+ViteJS 
+
+ Es un compilador de JS, que nos permite usar JS moderno en el navegador. Se suele usar en la linea de comandos.
+ 
+
+REACT
+
+ Es una libreria de JS para crear interfaces de usuario (UI). Por lo general se instala.
+
+
+
+
+
+
