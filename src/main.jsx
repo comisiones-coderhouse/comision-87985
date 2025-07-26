@@ -3,7 +3,14 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-createRoot(document.getElementById('root')).render(
+
+//<div id="root"></div>
+const DOMElement = document.getElementById('root')
+
+const VDOMElement = createRoot(DOMElement)
+
+//JSX
+VDOMElement.render(
   <StrictMode>
     <App />
   </StrictMode>,
