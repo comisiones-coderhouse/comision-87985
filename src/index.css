@@ -1,0 +1,27 @@
+.btn {
+    background-color: #fdde6b;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.carrito {
+    stroke-width: 1.5;
+}
+
+.popup {
+    display: none;
+    background-color: #73dee6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.popup_open {
+    display: block;
+}
