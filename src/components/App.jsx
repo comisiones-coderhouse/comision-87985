@@ -1,7 +1,6 @@
-import { Button } from "./Button"
 import { Navbar } from "./Navbar"
-import logo from "../images/vite.svg"
 import { ItemListContainer } from "./ItemListContainer"
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
@@ -10,17 +9,10 @@ function App() {
   return (
     <div>
       <Navbar />
-      <ItemListContainer mensaje="Bienvenido a mi app!"/>
-      {/* <img src="/images/vite.svg" alt="logo" /> */}
-      {/* <a href="/">
-        <img src={logo} alt="logo" />
-      </a>
-      <Button nombre="Crear Producto" icono="🛒" />
-      <Button nombre="Login" icono="🔑" />
-      <Button nombre="Salir" icono="👋" />
-      <Button nombre="Comprar" icono="🛒" /> */}
+      <ItemListContainer mensaje="Bienvenido a mi app!" />
       <p id="" className="parrafo">Hola</p>
-      <input type="text" placeholder="Ingrese su nombre" minLength="3"/>
+      <input type="text" placeholder="Ingrese su nombre" minLength="3" />
+      <Toaster/>
     </div>
   )
 }

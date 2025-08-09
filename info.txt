@@ -94,3 +94,11 @@ Una app de React creada con ViteJS que tenga :
             |_ ItemListContainer.jsx : Se encarga de mostrar un texto de bienvenida. El texto debe ser dinamico, osea que le debe llegar al componente por props(parametro)
 
 Todos los componentes deben estar en la carpeta src/components
+
+
+HTTP
+Fetch API
+Promises
+Async/Await
+
+useEffect

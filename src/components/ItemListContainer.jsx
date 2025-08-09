@@ -1,129 +1,103 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import toast from "react-hot-toast"
 
-//Hooks y ciclos de vida
+export function ItemListContainer() {
 
-import { Button } from "./Button";
+    const [pokemons, setPokemons] = useState([])
+    console.log("🚀 ~ ItemListContainer ~ pokemons:", pokemons)
+
+    //El fetch con parentesis manda a hacer el pedido
+    /* const resultado = fetch("https://pokeapi.co/api/v2/pokemon/")
+
+    resultado
+        .then((resultado) => {
+            //La primera respuesta de un fetch es un objeto de tipo Response
+            console.log(resultado)
+            console.log("Salio todo bien")
+
+            //El metodo json() convierte la respuesta en un objeto de tipo JSON
+            const resultado2 = resultado.json()
+            resultado2
+                .then((resultado3) => {
+                    console.log(resultado3)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        })
+        .catch(() => {
+            console.log("Salio todo mal")
+        }) */
+
+    //useEffect(a,b)
+    //useEffect(a:function,b:array)
+    //useEffect(a:function,b:[])
+
+    useEffect(() => {
+        toast.loading("Cargando...")
+        async function getData() {
+            try {
+                const resultado = await fetch("https://pokeapi.co/api/v2/pokemon/")
+                const resultado2 = await resultado.json()
+                setPokemons(resultado2.results)
+                toast.dismiss()
+                toast.success("Datos cargados correctamente")
+            } catch (error) {
+                console.log(error)
+                toast.dismiss()
+                toast.error("Error al cargar los datos")
+            }
+        }
+
+        getData()
+    }, [])
 
 
 
-
-
-
-
-
-export function ItemListContainer(props) {
-
-    //Variable comun (no actualiza la vista automaticamente)
-    //let count = 0;
-
-    //Variable estado (actualiza la vista automaticamente)
-    //const [estado,setEstado] = useState(valorInicial)
-    const [count, setCount] = useState(0)
-    const [popupClass, setPopupClass] = useState("popup")
-    //const [isOpen, setIsOpen] = useState(false)
-
-
-    //acciones
-    const handleClick = () => {
-        console.log("Hola");
-    }
-
-    const handleIncrement = () => {
-
-        /* count++
-        count = count + 1
-        count += 1 */
-
-        //count++;
-        //const parrafo = documenbt.querySelector("p")
-        //parrafo.textContent = "Contador : " + count
-        setCount(count + 1)
-    }
-
-    const handleDecrement = () => {
-        //count--;
-        setCount(count - 1)
-    }
-
-    const openPopup = () => {
-        setPopupClass("popup popup_open")
-    }
+    /* 
     
+    THEN/CATCH/FINALLY : 
 
-    //vista
+    Promise
+    .then((resultado)=>{})
+    .catch((error)=>{})
+    .finally(()=>{})
+
+
+    ASYNC/AWAIT : 
+
+    async function miFuncion(){
+        const resultado = await Promise
+    }
+
+    
+    */
+
+
+    //Vista
     return (
         <section>
-            <h2>{props.mensaje}</h2>
-
-            <div>
-                <p>Contador: {count}</p>
-                <button onClick={handleIncrement}>Incrementar</button>
-                <button onClick={handleDecrement}>Decrementar</button>
-            </div>
-
-            <button onClick={openPopup}>abrir popup</button>
-
-            <div className={popupClass}>
-                <p onClick={handleClick}>Soy un popup</p>
-                <Button nombre="Cerrar" icono="❌" />
-            </div>
-
+            <p>Soy el ItemListContainer</p>
+            {pokemons.map((pokemon) => {
+                return <p>{pokemon.name}</p>
+            })}
+            {pokemons.map((pokemon) => <p>{pokemon.name}</p>)}
         </section>
     )
 }
 
 
 
-
 /* 
 
-JS vanilla 
 
+Array.forEach(a)
+Array.forEach(a:function)
+Array.forEach((item,index)=>{  })
+
+
+Array.map(a)
+Array.map(a:function)
+Array.map((item,index)=>{ return ??? })
 
 */
-
-//index.html
-{/* <div className="popup">
-    <p>Soy un popup</p>
-    <Button nombre="Cerrar" icono="❌" />
-</div>
-
-//index.js
-const popup = document.querySelector(".popup");
-const button = document.querySelector("button");
-const closeButton = document.querySelector(".close-button");
-
-button.addEventListener("click", () => {
-    popup.classList.add("show");
-});
-
-
-closeButton.addEventListener("click", () => {
-    popup.classList.remove("show");
-});
- */}
-
-
-
-
-
-//contador.html
-{/* <div>
-    <p>Contador: 0</p>
-    <button>Incrementar</button>
-    <button>Decrementar</button>
-</div>
-
-//contador.js
-const counter = document.querySelector("p");
-const incrementButton = document.querySelector("button");
-const decrementButton = document.querySelector("button");
-
-let count = 0;
-
-incrementButton.addEventListener("click", () => {
-    count++;
-    counter.textContent = `Contador: ${count}`;
-});
- 
- */}
