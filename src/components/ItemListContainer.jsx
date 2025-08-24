@@ -1,38 +1,15 @@
 import { useState, useEffect } from "react"
 import toast from "react-hot-toast"
+import { Link, useParams } from "react-router-dom"
 
 export function ItemListContainer() {
 
+    //Estados
     const [pokemons, setPokemons] = useState([])
-    console.log("🚀 ~ ItemListContainer ~ pokemons:", pokemons)
+    const resultado = useParams()
+    console.log("🚀 ~ ItemDetailContainer ~ resultado:", resultado)
 
-    //El fetch con parentesis manda a hacer el pedido
-    /* const resultado = fetch("https://pokeapi.co/api/v2/pokemon/")
-
-    resultado
-        .then((resultado) => {
-            //La primera respuesta de un fetch es un objeto de tipo Response
-            console.log(resultado)
-            console.log("Salio todo bien")
-
-            //El metodo json() convierte la respuesta en un objeto de tipo JSON
-            const resultado2 = resultado.json()
-            resultado2
-                .then((resultado3) => {
-                    console.log(resultado3)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        })
-        .catch(() => {
-            console.log("Salio todo mal")
-        }) */
-
-    //useEffect(a,b)
-    //useEffect(a:function,b:array)
-    //useEffect(a:function,b:[])
-
+    //Efectos
     useEffect(() => {
         toast.loading("Cargando...")
         async function getData() {
@@ -53,51 +30,24 @@ export function ItemListContainer() {
     }, [])
 
 
-
-    /* 
-    
-    THEN/CATCH/FINALLY : 
-
-    Promise
-    .then((resultado)=>{})
-    .catch((error)=>{})
-    .finally(()=>{})
-
-
-    ASYNC/AWAIT : 
-
-    async function miFuncion(){
-        const resultado = await Promise
-    }
-
-    
-    */
-
-
     //Vista
     return (
-        <section>
-            <p>Soy el ItemListContainer</p>
-            {pokemons.map((pokemon) => {
-                return <p>{pokemon.name}</p>
-            })}
-            {pokemons.map((pokemon) => <p>{pokemon.name}</p>)}
-        </section>
+        <main className="main">
+
+            <section className="main__section">
+                <h2 className="main__title">Soy el ItemListContainer</h2>
+                <div className="products">
+                    {pokemons.map((pokemon) => {
+                        return (
+                            <article className="product">
+                                <h3>{pokemon.name}</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                                <Link to={`/pokemon/${pokemon.name}`}>ver detalle</Link>
+                            </article>
+                        )
+                    })}
+                </div>
+            </section>
+        </main>
     )
 }
-
-
-
-/* 
-
-
-Array.forEach(a)
-Array.forEach(a:function)
-Array.forEach((item,index)=>{  })
-
-
-Array.map(a)
-Array.map(a:function)
-Array.map((item,index)=>{ return ??? })
-
-*/

@@ -102,3 +102,14 @@ Promises
 Async/Await
 
 useEffect
+
+
+
+Rutas : 
+
+/ : Es la landing y debe mostrar un listado de productos (ItemListContainer)
+/categoria/:id : Es la pagina donde se muesta un listado de productos de esa categoria (ItemListContainer)
+/producto/:id : Es la pagina donde se muestra un producto (ItemDetailContainer)
+
+
+Mock Async : fetch
