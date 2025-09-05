@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useParams } from "react-router-dom"
+import { ItemDetail } from "./ItemDetail"
 
 export function ItemDetailContainer() {
 
@@ -28,9 +29,6 @@ export function ItemDetailContainer() {
 
     //Vista
     return (
-        <div>
-            <img src={pokemon.sprites?.front_default} alt={pokemon.name} />
-            {pokemon.name}
-            </div>
+        <ItemDetail pokemon={pokemon}/>
     )
 }

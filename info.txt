@@ -113,3 +113,52 @@ Rutas :
 
 
 Mock Async : fetch
+
+
+
+State Uplifting
+Context API
+
+
+State Uplifting : 
+
+1) Identificar componentes padre e hijo
+2) Al componente padre hay que agregarle una funcion en su interior
+3) Habria que enviarle la funcion del paso 2 al componente hijo por props
+4) Recibir el prop en el componente hijo
+5) Usar la funcion recibida por props en algun efecto/evento
+
+
+
+Context API : 
+
+0) Creo un nuevo archivo para todo esto
+1) Hay que crear un objeto contexto/provider (usar createContext)
+2) Crear un componente "envoltorio" del contexto/provider
+3) Configurar el prop "value" del provider
+4) Habilitar el prop "children" en el componente del paso 2
+5) Envolver toda la App en el componente del paso 2
+
+
+Consumir el contexto : 
+
+1) Importar el hook llamado useContext
+2) Importar el objeto contexto creado en el paso 1 del tuto anterior
+3) 2 es parametro de 1
+4) ???
+5) Profit
+
+
+
+
+
+
+<Componente id="" />
+<Componente nombre="" />
+<Componente cant="" />
+<Componente cant="" nombre=""/>
+
+
+<Componente>
+    /////
+</Componente>

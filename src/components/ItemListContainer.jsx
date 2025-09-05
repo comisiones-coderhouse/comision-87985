@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import toast from "react-hot-toast"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import { Item } from "./Item"
 
 export function ItemListContainer() {
 
     //Estados
     const [pokemons, setPokemons] = useState([])
     const resultado = useParams()
-    console.log("🚀 ~ ItemDetailContainer ~ resultado:", resultado)
 
     //Efectos
     useEffect(() => {
@@ -35,15 +35,11 @@ export function ItemListContainer() {
         <main className="main">
 
             <section className="main__section">
-                <h2 className="main__title">Soy el ItemListContainer</h2>
+                {/* <h2 className="main__title">Soy el ItemListContainer</h2> */}
                 <div className="products">
                     {pokemons.map((pokemon) => {
                         return (
-                            <article className="product">
-                                <h3>{pokemon.name}</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-                                <Link to={`/pokemon/${pokemon.name}`}>ver detalle</Link>
-                            </article>
+                            <Item pokemon={pokemon}/>
                         )
                     })}
                 </div>
