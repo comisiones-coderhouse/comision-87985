@@ -152,13 +152,4 @@ Consumir el contexto :
 
 
 
-
-<Componente id="" />
-<Componente nombre="" />
-<Componente cant="" />
-<Componente cant="" nombre=""/>
-
-
-<Componente>
-    /////
-</Componente>
+Firebase : 

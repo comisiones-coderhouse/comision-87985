@@ -1,19 +1,23 @@
 import { useState, useContext } from "react";
 import { Contador } from "./Contador";
-import { miContexto } from "./CustomContext";
+import { CartContext } from "./CartContext"
+import { Button } from "antd";
 
 
 
 //Componente Padre
 export const ItemDetail = (props) => {
-    
-    const [received, setReceived] = useState(false)
-    const elValorDelContexto = useContext(miContexto)
-    console.log("🚀 ~ ItemDetail ~ elValorDelContexto:", elValorDelContexto)
+
+    const [quantity, setQuantity] = useState(0)
+    const valorDelContexto = useContext(CartContext)
 
     const handle = (data) => {
-        console.log(data)
-        setReceived(true)
+        setQuantity(data)
+    }
+
+    const handleAddToCart = () => {
+        console.log(quantity)
+        valorDelContexto.addItemToCart(quantity)
     }
 
     return (
@@ -24,7 +28,11 @@ export const ItemDetail = (props) => {
             />
             {props.pokemon.name}
             <Contador handle={handle} />
-            <p>{received === true ? "Se recibio el 1 del contador" : "No se recibio nada aun"}</p>
+            {quantity > 0 ? (
+                <Button type="primary" onClick={handleAddToCart}>
+                    Agregar al carrito
+                </Button>
+            ) : null}
         </div>
     )
 }
