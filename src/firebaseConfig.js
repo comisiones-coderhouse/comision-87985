@@ -18,3 +18,7 @@ export const db = getFirestore(app);
 
 //1) Una referencia a la aplicacion/plataforma de firebase (es la constante "app")
 //2) Una referencia a la base de datos de firebase (Se hace con la funcion getFirestore de firebase)
+
+//App -> me da -> db
+//db -> me da -> collection
+//collection -> me da -> consulta (addDoc, getDocs, getDoc, updateDoc, deleteDoc)

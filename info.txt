@@ -153,3 +153,8 @@ Consumir el contexto :
 
 
 Firebase : 
+
+
+getDocs : Es para traer uno o varios documentos de una coleccion (para la landing, osea todos los productos y para las categorias)
+
+getDoc : Es para traer un solo documento de una coleccion
