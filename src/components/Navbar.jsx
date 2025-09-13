@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export function Navbar() {
 
-    //vista
     return (
         <header className="header">
             <h1 className="header__title">Mi tienda</h1>
